@@ -11,6 +11,12 @@ package Main;
  */
 public class Country {
 
+private String code; //code
+    private String name; //name
+    private String continent; //contient
+    private float surface; //surface area
+    private String headOfState; //head of state
+
 public Country(){
         
     }
