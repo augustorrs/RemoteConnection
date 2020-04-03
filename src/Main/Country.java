@@ -4,7 +4,7 @@ package Main;
  *
  * @author Augusto Souza 2017376
  */
-public class RemoteConnection {
+public class Country {
 
 private String code; //code
     private String name; //name
