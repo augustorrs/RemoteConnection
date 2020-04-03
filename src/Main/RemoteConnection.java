@@ -33,5 +33,33 @@ public class RemoteConnection {
             
         }
     }
+
+//print countries by code
+    private static void printCountriesByCode(){
+        try{
+            String code = new String();
+            Scanner scanner = new Scanner(System.in);
+            while(true){
+                System.out.print("Please enter code: ");
+                code = scanner.nextLine();
+                if(code == null || code.trim().isEmpty()){
+                    System.out.println("Invalid code !");
+                    continue;
+                }
+                break;
+            }
+            List<Country> all_countries = DBCountry.readCountirsByCode(code);
+            if(all_countries == null || all_countries.isEmpty()){
+                System.out.println("Empty record !");
+                return;
+            }
+            System.out.println("Code\tName\tContinent\tSurfaceArea\tHeadOfState");
+            for(Country item : all_countries){
+                System.out.println(item.toString());
+            }
+        }catch(Exception e){
+            
+        }
+    }
     
 }
