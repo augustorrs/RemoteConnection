@@ -75,4 +75,27 @@ public class DBCountry {
     public static List<Country> readCountirsByName(String name){
         return readDBByQuery("select * from country where Name=" + "'" + name + "'");
     }
+
+/**
+     * Add new country
+     * @param country
+     * @return 
+     */
+    public static boolean addNewCountry(Country country){
+        try {
+            String query = " insert into country (Code, Name, Continent, SurfaceArea, HeadOfState)"
+                    + " values (?, ?, ?, ?, ?)";
+            DBConnection.preparedStatement = DBConnection.connect.prepareStatement(query);
+            DBConnection.preparedStatement.setString(1, country.getCode());
+            DBConnection.preparedStatement.setString(2, country.getName());
+            DBConnection.preparedStatement.setString(3, country.getContinent());
+            DBConnection.preparedStatement.setFloat(4, country.getSurface());
+            DBConnection.preparedStatement.setString(5, country.getHead());
+            DBConnection.preparedStatement.executeUpdate();
+            
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
