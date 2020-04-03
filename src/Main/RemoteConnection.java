@@ -61,5 +61,33 @@ public class RemoteConnection {
             
         }
     }
+
+//print countirs by name
+    private static void printCountriesByName(){
+        try{
+            String name = new String();
+            Scanner scanner = new Scanner(System.in);
+            while(true){
+                System.out.print("Please enter name: ");
+                name = scanner.nextLine();
+                if(name == null || name.trim().isEmpty()){
+                    System.out.println("Invalid name !");
+                    continue;
+                }
+                break;
+            }
+            List<Country> all_countries = DBCountry.readCountirsByName(name);
+            if(all_countries == null || all_countries.isEmpty()){
+                System.out.println("Empty record !");
+                return;
+            }
+            System.out.println("Code\tName\tContinent\tSurfaceArea\tHeadOfState");
+            for(Country item : all_countries){
+                System.out.println(item.toString());
+            }
+        }catch(Exception e){
+            
+        }
+    }
     
 }
