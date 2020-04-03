@@ -33,4 +33,25 @@ public static Connection connect = null;
             return false;
         }
     }
+/**
+     * close database
+     */
+    public static void close() {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connect != null) {
+                connect.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
