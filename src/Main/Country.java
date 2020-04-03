@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Main;
 
 /**
  *
  * @author Augusto Souza 2017376
  */
-public class Country {
+public class RemoteConnection {
 
 private String code; //code
     private String name; //name
