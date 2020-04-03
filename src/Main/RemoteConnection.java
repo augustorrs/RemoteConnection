@@ -62,7 +62,7 @@ public class RemoteConnection {
         }
     }
 
-//print countirs by name
+//print countries by name
     private static void printCountriesByName(){
         try{
             String name = new String();
@@ -89,5 +89,37 @@ public class RemoteConnection {
             
         }
     }
-    
+
+//add new country
+    private static void addNewCountry(){
+        Country country = new Country();
+        String code = getStringFromScanner("Enter code: ");
+        String name = getStringFromScanner("Enter name: ");
+        String continent = getStringFromScanner("Enter continent: ");
+        String surface = new String();
+        float surface_val = 0.0f;
+        while(true){
+            surface = getStringFromScanner("Enter surface of area: ");
+            try{
+                surface_val = Float.parseFloat(surface);
+            }catch(Exception e){
+                System.err.println("Invalid input !");
+                continue;
+            }
+            break;
+        }
+        String head = getStringFromScanner("Enter head of state: ");
+        
+        country.setCode(code);
+        country.setName(name);
+        country.setContinent(continent);
+        country.setSurface(surface_val);
+        country.setHead(head);
+        
+        if(DBCountry.addNewCountry(country)){
+            System.out.println("Success to add new country !");
+        }else{
+            System.out.println("Fail to add new country !");
+        }
+    }    
 }
