@@ -1,9 +1,14 @@
 package Main;
 
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Augusto Souza 2017376
  */
+
 public class DBCountry {
     
 /**
@@ -46,5 +51,28 @@ public class DBCountry {
             return null;
         }
         return read_all;
+    }
+/**
+     * read all countries
+     * @return 
+     */
+    public static List<Country> readAllCountries() {
+        return readDBByQuery("select * from country");
+    }
+    /**
+     * read database by code
+     * @param code
+     * @return 
+     */
+    public static List<Country> readCountirsByCode(String code){
+        return readDBByQuery("select * from country where Code=" + "'" + code + "'");
+    }
+    /**
+     * read database by name
+     * @param name
+     * @return 
+     */
+    public static List<Country> readCountirsByName(String name){
+        return readDBByQuery("select * from country where Name=" + "'" + name + "'");
     }
 }
