@@ -29,5 +29,21 @@ public Country(){
     public void setHead(String val){
         this.headOfState = val;
     }
+
+public String getCode(){
+        return code;
+    }
+    public String getName(){
+         return name;
+    }
+    public String getContinent(){
+        return continent;
+    }
+    public float getSurface(){
+        return surface;
+    }
+    public String getHead(){
+        return headOfState;
+    }
     
 }
