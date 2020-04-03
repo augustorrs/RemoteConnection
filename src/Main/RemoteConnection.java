@@ -121,5 +121,60 @@ public class RemoteConnection {
         }else{
             System.out.println("Fail to add new country !");
         }
+    }
+
+/**
+     * run source code with options
+     */
+    private static void mainProcessing(){
+        Scanner scanner = new Scanner(System.in);
+        String pattern = "[1-5]";
+        while(true){
+            Usage();
+            String option = scanner.nextLine();
+            if(!Pattern.compile(pattern).matcher(option).matches()){
+                System.out.println("Invalid option !");
+                continue;
+            }
+            if(option.equals("1")) printAllCountires();
+            else if(option.equals("2")) printCountriesByCode();
+            else if(option.equals("3")) printCountriesByName();
+            else if(option.equals("4")) addNewCountry();
+            else if(option.equals("5")) break;
+        }
+    }
+    private static String getStringFromScanner(String prefix){
+        Scanner scanner = new Scanner(System.in);
+        String content;
+        while(true){
+            System.out.print(prefix);
+            content = scanner.nextLine();
+            if(content == null || content.trim().isEmpty()){
+                System.err.println("Invalid input !");
+                continue;
+            }else{
+                break;
+            }
+        }
+        return content;
+    }
+    //Usage
+    private static void Usage(){
+        System.out.println("\nPlease select one in following options: ");
+        System.out.println("Get all countries: 1");
+        System.out.println("Get countries by code: 2");
+        System.out.println("Get countries by name: 3");
+        System.out.println("Add new country: 4");
+        System.out.println("Exit: 5");
+    }
+    
+    public static void main(String[] args) {
+        //connect database
+        if (!DBConnection.connection()) {
+            System.err.println("Fail to connect database !");
+            return;
+        }
+        mainProcessing();
+        
     }    
 }
