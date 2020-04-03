@@ -45,5 +45,9 @@ public String getCode(){
     public String getHead(){
         return headOfState;
     }
-    
+
+@Override
+    public String toString(){
+        return code + "\t" + name + "\t" + continent + "\t" + surface + "\t" + headOfState;
+    }    
 }
