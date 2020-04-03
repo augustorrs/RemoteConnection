@@ -1,6 +1,12 @@
 
 package Main;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author Augusto Souza 2017376
@@ -53,5 +59,10 @@ public static Connection connect = null;
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+public static void reconnect() {
+        close();
+        connection();
     }
 }
